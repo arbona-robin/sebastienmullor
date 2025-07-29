@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sébastien Mullor - Architecte Naval</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navigation sticky transparente -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <img src="assets/logo-removebg.png" alt="Logo Sébastien Mullor" />
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Réalisations</a></li>
+          <li>
+            <a href="architecture.html" class="nav-link active"
+              >Architecture Navale</a
+            >
+          </li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Architecture Navale -->
+    <main class="architecture-page">
+      <!-- Section avec photo à droite et texte à gauche -->
+      <section class="intro-section">
+        <div class="intro-container">
+          <div class="intro-text">
+            <h1>Sébastien Mullor</h1>
+            <h2>Architecte et Ingénieur Naval</h2>
+            <p>
+              Je m'appelle Sébastien Mullor, architecte et ingénieur naval,
+              animé par une passion profonde et sincère pour les bateaux et la
+              mer.
+            </p>
+            <p>
+              Depuis toujours, je conçois et imagine des navires comme des
+              œuvres d'ingénierie autant que des expressions de liberté. Mon
+              travail allie précision technique, sensibilité esthétique et
+              respect de l'environnement marin.
+            </p>
+            <p>
+              Mon approche s'appuie sur une double compétence : l'exigence de
+              l'ingénierie et la créativité de l'architecture navale. Qu'il
+              s'agisse de projets innovants, de restauration, ou de design sur
+              mesure, je m'engage à chaque étape avec rigueur et engagement, en
+              dialogue constant avec ceux qui vivent la mer intensément.
+            </p>
+            <p class="quote">
+              <em
+                >Naviguer, concevoir, rêver, c'est là que se situe mon
+                métier.</em
+              >
+            </p>
+          </div>
+          <div class="intro-image">
+            <img src="assets/archi_navale.jpg" alt="Architecture Navale" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Section texte full page -->
+      <section class="full-text-section">
+        <div class="container">
+          <div class="text-content">
+            <h2>Formation & Expérience</h2>
+            <p>
+              Issu d'un Mastère Spécialisé / DPEA en Ingénierie et Architecture
+              Navale (ENSTA Bretagne / ENSA Paris-La Villette), mon approche
+              s'appuie sur une rigueur technique solide, une recherche constante
+              d'innovation formelle, et une sensibilité affirmée pour le design.
+            </p>
+
+            <p>
+              J'ai exercé pendant plusieurs années en tant que responsable de
+              bureau d'études dans des chantiers navals, où j'ai dirigé le
+              développement technique et la conception de navires, de l'esquisse
+              à la mise à l'eau. Cette expérience a renforcé ma capacité à gérer
+              des projets complexes, à coordonner des équipes
+              pluridisciplinaires et à répondre aux exigences industrielles avec
+              précision.
+            </p>
+
+            <h3>Ma Philosophie de Conception</h3>
+            <p>
+              Aujourd'hui, je conçois des navires innovants, allant du yacht au
+              bateau professionnel, à moteur ou à voiles, en cultivant une
+              esthétique contemporaine et une recherche d'équilibre entre
+              performance hydrodynamique et expression visuelle.
+            </p>
+
+            <p>
+              Mes projets intègrent les contraintes techniques tout autant que
+              les usages, en mettant l'utilisateur au centre de la réflexion.
+            </p>
+
+            <h3>Ma Vision</h3>
+            <p>
+              Dessiner des bateaux qui repoussent les limites du possible en
+              matière de design, de fonctionnalité et de durabilité tout en
+              respectant la mer, matrice de chaque création.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Menu hamburger
+      const hamburger = document.querySelector(".hamburger");
+      const navMenu = document.querySelector(".nav-menu");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      });
+
+      // Fermer le menu quand on clique sur un lien
+      document.querySelectorAll(".nav-link").forEach((n) =>
+        n.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          navMenu.classList.remove("active");
+        })
+      );
+    </script>
+  </body>
+</html>
