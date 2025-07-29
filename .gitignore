@@ -1,6 +1,7 @@
 # Fichiers de développement et documentation
 *.pdf
 optimize_images.sh
+test-metadata.sh
 
 # Dossiers de sauvegarde
 assets/backup/
