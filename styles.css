@@ -10,6 +10,7 @@ body {
     "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
   color: #333;
+  background-color: #000; /* Forcer le fond noir pour toutes les pages */
   overflow-x: hidden;
 }
 
@@ -22,8 +23,8 @@ body {
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
   z-index: 1000;
-  padding: 1rem 0;
   transition: all 0.3s ease;
+  height: 80px; /* Hauteur fixe pour cohérence */
 }
 
 .nav-container {
@@ -33,12 +34,22 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
+  height: 100%; /* Utiliser toute la hauteur de la navbar */
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 120px; /* Largeur fixe pour éviter les variations */
 }
 
 .nav-logo img {
   height: 40px;
+  width: auto;
   max-width: 120px;
   object-fit: contain;
+  object-position: left center; /* Alignement cohérent */
   /* Logo sans fond, pas besoin de filtre */
 }
 
@@ -477,6 +488,10 @@ body {
 }
 
 @media (max-width: 480px) {
+  .nav-logo {
+    width: 100px; /* Largeur réduite pour mobile */
+  }
+
   .nav-logo img {
     height: 35px;
     max-width: 100px;
