@@ -267,13 +267,13 @@ body {
 /* PAGE CONTACT */
 
 .contact-page {
-  padding-top: 0;
+  padding-top: 80px; /* Compenser la hauteur de la navbar */
   min-height: 100vh;
   background: #000;
 }
 
 .contact-section {
-  height: 100vh;
+  height: calc(100vh - 80px); /* Soustraire la hauteur de la navbar */
   display: flex;
   align-items: stretch;
 }
@@ -469,7 +469,7 @@ body {
 
   .contact-section {
     height: auto;
-    min-height: 100vh;
+    min-height: calc(100vh - 80px); /* Compenser la navbar aussi sur mobile */
   }
 
   .contact-info {
