@@ -199,6 +199,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-logo {
+  margin-bottom: 3rem;
 }
 
 .hero-logo img {
@@ -212,6 +225,80 @@ body {
   /* Si le logo a un fond blanc, décommentez les lignes suivantes : */
   /* mix-blend-mode: multiply; */
   /* filter: invert(1); */
+}
+
+/* CTA Hero */
+.hero-cta {
+  position: relative;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  padding: 1rem 2rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+.cta-button:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+.cta-arrow {
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover .cta-arrow {
+  transform: translateY(3px);
+}
+
+.cta-arrow svg {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+}
+
+/* Animation de pulsation pour attirer l'attention */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+  }
+}
+
+.cta-button {
+  animation: pulse 3s infinite;
 }
 
 /* Galerie photos */
@@ -490,6 +577,15 @@ body {
     max-width: 200px;
   }
 
+  .hero-logo {
+    margin-bottom: 2rem;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+
   .intro-container {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -567,8 +663,17 @@ body {
   }
 
   .hero-logo img {
-    max-width: 500px;
-    max-height: 250px;
+    max-width: 300px;
+    max-height: 200px;
+  }
+
+  .hero-logo {
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
   }
 
   .intro-text h1 {

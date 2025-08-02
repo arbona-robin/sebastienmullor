@@ -11,6 +11,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 300);
   }
   
+  // Gestion du smooth scroll pour le CTA
+  const ctaButton = document.querySelector('.cta-button');
+  if (ctaButton) {
+    ctaButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = ctaButton.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  }
+  
   // Gestion des liens avec transition
   document.querySelectorAll('.transition-link').forEach(link => {
     link.addEventListener('click', (e) => {
