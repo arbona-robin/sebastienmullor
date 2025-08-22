@@ -1,9 +1,16 @@
+# Generated HTML files (built from templates)
+index.html
+architecture.html
+contact.html
+
 node_modules/
 *.log
 pnpm-lock.yaml
 yarn.lock
 dist/
-tmp/# Fichiers de développement et documentation
+tmp/
+
+# Fichiers de développement et documentation
 *.pdf
 optimize_images.sh
 test-metadata.sh
