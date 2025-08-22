@@ -1,26 +1,27 @@
 const { metaTags, structuredDataPerson } = require("./utils/meta-generator");
-const { renderTemplate, paragraphHTML, markdownToHTML } = require("./utils/template-renderer");
-const { readJSON, loadTemplate, writePage } = require("./utils/file-utils");
+const { renderPageWithLayout, paragraphHTML, markdownToHTML } = require("./utils/template-renderer");
+const { readJSON, writePage } = require("./utils/file-utils");
 
 function buildIndex(site) {
   const data = readJSON("index");
-  const template = loadTemplate("index");
   const headMeta = metaTags(data, site) + "\n    " + structuredDataPerson(site);
   
   const templateData = {
     ...data,
     PAGE_TITLE: data.meta.title,
     HERO_CTA: data.hero.cta_text,
-    HEAD_META: headMeta
+    HEAD_META: headMeta,
+    INDEX_ACTIVE: true,
+    ARCHITECTURE_ACTIVE: false,
+    CONTACT_ACTIVE: false
   };
   
-  const html = renderTemplate(template, templateData);
+  const html = renderPageWithLayout("index", templateData);
   writePage("index", html);
 }
 
 function buildArchitecture(site) {
   const data = readJSON("architecture");
-  const template = loadTemplate("architecture");
   const headMeta = metaTags(data, site);
   
   const templateData = {
@@ -35,16 +36,18 @@ function buildArchitecture(site) {
     INTRO_IMAGE: data.intro.image,
     FORMATION_PARAGRAPHS: data.formation.content ? markdownToHTML(data.formation.content) : paragraphHTML(data.formation.paragraphs || []),
     PHILOSOPHY_PARAGRAPHS: data.philosophy.content ? markdownToHTML(data.philosophy.content) : paragraphHTML(data.philosophy.paragraphs || []),
-    VISION_PARAGRAPHS: data.vision.content ? markdownToHTML(data.vision.content) : paragraphHTML(data.vision.paragraphs || [])
+    VISION_PARAGRAPHS: data.vision.content ? markdownToHTML(data.vision.content) : paragraphHTML(data.vision.paragraphs || []),
+    INDEX_ACTIVE: false,
+    ARCHITECTURE_ACTIVE: true,
+    CONTACT_ACTIVE: false
   };
   
-  const html = renderTemplate(template, templateData);
+  const html = renderPageWithLayout("architecture", templateData);
   writePage("architecture", html);
 }
 
 function buildContact(site) {
   const data = readJSON("contact");
-  const template = loadTemplate("contact");
   const headMeta = metaTags(data, site);
   
   const templateData = {
@@ -60,10 +63,13 @@ function buildContact(site) {
     PROJECTS_TITLE: data.projects.title,
     PROJECTS_TEXT: data.projects.text,
     CONTACT_IMAGE: data.image.path,
-    CONTACT_IMAGE_ALT: data.image.alt
+    CONTACT_IMAGE_ALT: data.image.alt,
+    INDEX_ACTIVE: false,
+    ARCHITECTURE_ACTIVE: false,
+    CONTACT_ACTIVE: true
   };
   
-  const html = renderTemplate(template, templateData);
+  const html = renderPageWithLayout("contact", templateData);
   writePage("contact", html);
 }
 

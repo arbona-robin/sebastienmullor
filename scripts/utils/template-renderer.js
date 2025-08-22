@@ -1,5 +1,6 @@
 const Mustache = require("mustache");
 const { marked } = require("marked");
+const { loadTemplate } = require("./file-utils");
 
 function paragraphHTML(arr) {
   return arr
@@ -24,12 +25,35 @@ function markdownToHTML(content) {
     .trim();
 }
 
-function renderTemplate(template, data) {
-  return Mustache.render(template, data);
+function renderTemplate(template, data, partials = {}) {
+  return Mustache.render(template, data, partials);
+}
+
+function renderPageWithLayout(pageName, data) {
+  const baseLayout = loadTemplate("base-layout");
+  const mainContent = loadPartial(`${pageName}-main`);
+  
+  const partials = {
+    "main-content": mainContent
+  };
+  
+  return renderTemplate(baseLayout, data, partials);
+}
+
+function loadPartial(name) {
+  const fs = require("fs");
+  const path = require("path");
+  const root = process.cwd();
+  const partialsDir = path.join(root, "templates", "partials");
+  return fs.readFileSync(
+    path.join(partialsDir, name + ".template.html"),
+    "utf8"
+  );
 }
 
 module.exports = {
   renderTemplate,
+  renderPageWithLayout,
   paragraphHTML,
   markdownToHTML
 };

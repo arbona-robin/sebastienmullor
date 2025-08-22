@@ -1,0 +1,19 @@
+    <main class="page-transition">
+      <section class="hero-section">
+        <div class="hero-content">
+          <div class="hero-logo">
+            <img src="assets/logo.png" alt="Logo Sébastien Mullor" />
+          </div>
+          <div class="hero-cta">
+            <a href="#gallery" class="cta-button"><span>{{HERO_CTA}}</span></a>
+          </div>
+        </div>
+      </section>
+      <section class="gallery" id="gallery">
+        {{#gallery}}
+        <div class="gallery-item">
+          <img src="{{image}}" alt="{{alt}}" />
+        </div>
+        {{/gallery}}
+      </section>
+    </main>

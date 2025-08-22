@@ -18,41 +18,23 @@
         </div>
         <ul class="nav-menu">
           <li>
-            <a href="index.html" class="nav-link active transition-link"
+            <a href="index.html" class="nav-link{{#INDEX_ACTIVE}} active{{/INDEX_ACTIVE}} transition-link"
               >Réalisations</a
             >
           </li>
           <li>
-            <a href="architecture.html" class="nav-link transition-link"
+            <a href="architecture.html" class="nav-link{{#ARCHITECTURE_ACTIVE}} active{{/ARCHITECTURE_ACTIVE}} transition-link"
               >Architecture Navale</a
             >
           </li>
           <li>
-            <a href="contact.html" class="nav-link transition-link">Contact</a>
+            <a href="contact.html" class="nav-link{{#CONTACT_ACTIVE}} active{{/CONTACT_ACTIVE}} transition-link">Contact</a>
           </li>
         </ul>
         <div class="hamburger"><span></span><span></span><span></span></div>
       </div>
     </nav>
-    <main class="page-transition">
-      <section class="hero-section">
-        <div class="hero-content">
-          <div class="hero-logo">
-            <img src="assets/logo.png" alt="Logo Sébastien Mullor" />
-          </div>
-          <div class="hero-cta">
-            <a href="#gallery" class="cta-button"><span>{{HERO_CTA}}</span></a>
-          </div>
-        </div>
-      </section>
-      <section class="gallery" id="gallery">
-        {{#gallery}}
-        <div class="gallery-item">
-          <img src="{{image}}" alt="{{alt}}" />
-        </div>
-        {{/gallery}}
-      </section>
-    </main>
+    {{>main-content}}
     <script src="page-transitions.js"></script>
   </body>
 </html>
