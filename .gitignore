@@ -41,3 +41,7 @@ yarn-error.log*
 # Fichiers temporaires
 *.tmp
 *.temp
+
+# Claude Code settings
+.claude/
+CLAUDE.md
