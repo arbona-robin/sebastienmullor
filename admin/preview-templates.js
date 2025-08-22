@@ -230,69 +230,149 @@ const ArchitecturePreview = ({ entry, widgetFor, getAsset }) => {
             }
           }, intro.role || ""),
           intro.content ? h("div", { 
+            className: "text-lg max-md:text-base mb-6 text-gray-300 leading-relaxed",
+            style: {
+              fontSize: "1.125rem",
+              marginBottom: "1.5rem",
+              color: "#d1d5db",
+              lineHeight: "1.75"
+            },
             dangerouslySetInnerHTML: { 
               __html: markdownToHTML(intro.content)
             }
           }) : null,
-          intro.quote ? h("div", { 
-            className: "text-xl max-md:text-lg max-sm:text-base text-white font-medium mt-8 max-md:mt-6 max-sm:mt-4 p-6 max-md:p-4 max-sm:p-3 bg-white/10 border-l-4 border-white rounded-r-lg" 
-          }, intro.quote) : null,
+          intro.quote ? h("p", { 
+            className: "text-xl max-md:text-lg max-sm:text-base text-white font-medium mt-8 max-md:mt-6 p-6 max-md:p-4 max-sm:p-3 bg-white/10 border-l-4 border-white rounded-r-lg quote",
+            style: {
+              fontSize: "1.25rem",
+              color: "#fff",
+              fontWeight: "500",
+              marginTop: "2rem",
+              padding: "1.5rem",
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              borderLeft: "4px solid #fff",
+              borderRadius: "0 8px 8px 0"
+            }
+          }, h("em", {}, intro.quote)) : null,
         ]),
         intro.image
-          ? h("div", { className: "overflow-hidden max-md:order-first" }, [
+          ? h("div", { 
+            className: "overflow-hidden max-md:order-first",
+            style: { overflow: "hidden" }
+          }, [
               h("img", {
                 src: getAsset(intro.image),
-                alt: intro.name || "Photo de profil",
-                className: "w-full h-auto rounded-lg shadow-lg transition-transform duration-300 hover:scale-105",
+                alt: intro.name || "Architecture Navale",
+                className: "w-full h-auto rounded-lg shadow-xl transition-transform duration-300 hover:scale-[1.02]",
+                style: {
+                  width: "100%",
+                  height: "auto",
+                  borderRadius: "8px",
+                  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+                  transition: "transform 0.3s ease"
+                }
               }),
             ])
           : null,
       ]),
     ]),
 
-    // Formation Section
-    formation.content
-      ? h("section", { className: "py-24 max-md:py-16 max-sm:py-12 bg-black" }, [
-          h("div", { className: "max-w-4xl mx-auto px-8 max-lg:px-6 max-md:px-4 max-sm:px-2" }, [
-            h("div", { className: "text-center" }, [
-              h("h2", { className: "text-4xl max-md:text-3xl max-sm:text-2xl mb-8 max-md:mb-6 max-sm:mb-4 text-white font-light" }, "Formation"),
-              h("div", { 
-                dangerouslySetInnerHTML: { 
-                  __html: markdownToHTML(formation.content)
-                }
-              }),
-            ]),
-          ]),
-        ])
-      : null,
+    // Full Text Section combining all content
+    (formation.content || philosophy.content || vision.content)
+      ? h("section", { 
+          className: "py-24 max-md:py-12 bg-black",
+          style: {
+            padding: "6rem 0 6rem 0",
+            backgroundColor: "#000"
+          }
+        }, [
+          h("div", { 
+            className: "max-w-4xl mx-auto px-8 max-md:px-4",
+            style: {
+              maxWidth: "56rem",
+              margin: "0 auto",
+              padding: "0 2rem"
+            }
+          }, [
+            h("div", {}, [
+              // Formation Section
+              formation.content ? [
+                h("h2", { 
+                  className: "text-4xl max-md:text-3xl max-sm:text-2xl mb-8 max-md:mb-6 text-white font-light text-center",
+                  style: {
+                    fontSize: "2.25rem",
+                    marginBottom: "2rem",
+                    color: "#fff",
+                    fontWeight: "300",
+                    textAlign: "center"
+                  }
+                }, "Formation & Expérience"),
+                h("div", { 
+                  className: "text-lg max-md:text-base leading-relaxed mb-6 text-gray-300 text-justify",
+                  style: {
+                    fontSize: "1.125rem",
+                    lineHeight: "1.75",
+                    marginBottom: "1.5rem",
+                    color: "#d1d5db",
+                    textAlign: "justify"
+                  },
+                  dangerouslySetInnerHTML: { 
+                    __html: markdownToHTML(formation.content)
+                  }
+                })
+              ] : null,
 
-    // Philosophy Section
-    philosophy.content
-      ? h("section", { className: "py-24 max-md:py-16 max-sm:py-12 bg-black" }, [
-          h("div", { className: "max-w-4xl mx-auto px-8 max-lg:px-6 max-md:px-4 max-sm:px-2" }, [
-            h("div", { className: "text-center" }, [
-              h("h2", { className: "text-4xl max-md:text-3xl max-sm:text-2xl mb-8 max-md:mb-6 max-sm:mb-4 text-white font-light" }, "Philosophie"),
-              h("div", { 
-                dangerouslySetInnerHTML: { 
-                  __html: markdownToHTML(philosophy.content)
-                }
-              }),
-            ]),
-          ]),
-        ])
-      : null,
+              // Philosophy Section
+              philosophy.content ? [
+                h("h3", { 
+                  className: "text-xl max-md:text-lg my-12 max-md:my-8 max-md:mb-4 text-white font-normal",
+                  style: {
+                    fontSize: "1.25rem",
+                    margin: "3rem 0 1rem 0",
+                    color: "#fff",
+                    fontWeight: "400"
+                  }
+                }, "Ma Philosophie de Conception"),
+                h("div", { 
+                  className: "text-lg max-md:text-base leading-relaxed mb-6 text-gray-300 text-justify",
+                  style: {
+                    fontSize: "1.125rem",
+                    lineHeight: "1.75",
+                    marginBottom: "1.5rem",
+                    color: "#d1d5db",
+                    textAlign: "justify"
+                  },
+                  dangerouslySetInnerHTML: { 
+                    __html: markdownToHTML(philosophy.content)
+                  }
+                })
+              ] : null,
 
-    // Vision Section
-    vision.content
-      ? h("section", { className: "py-24 max-md:py-16 max-sm:py-12 bg-black" }, [
-          h("div", { className: "max-w-4xl mx-auto px-8 max-lg:px-6 max-md:px-4 max-sm:px-2" }, [
-            h("div", { className: "text-center" }, [
-              h("h2", { className: "text-4xl max-md:text-3xl max-sm:text-2xl mb-8 max-md:mb-6 max-sm:mb-4 text-white font-light" }, "Vision"),
-              h("div", { 
-                dangerouslySetInnerHTML: { 
-                  __html: markdownToHTML(vision.content)
-                }
-              }),
+              // Vision Section
+              vision.content ? [
+                h("h3", { 
+                  className: "text-xl max-md:text-lg my-12 max-md:my-8 max-md:mb-4 text-white font-normal",
+                  style: {
+                    fontSize: "1.25rem",
+                    margin: "3rem 0 1rem 0",
+                    color: "#fff",
+                    fontWeight: "400"
+                  }
+                }, "Ma Vision"),
+                h("div", { 
+                  className: "text-lg max-md:text-base leading-relaxed mb-6 text-gray-300 text-justify",
+                  style: {
+                    fontSize: "1.125rem",
+                    lineHeight: "1.75",
+                    marginBottom: "1.5rem",
+                    color: "#d1d5db",
+                    textAlign: "justify"
+                  },
+                  dangerouslySetInnerHTML: { 
+                    __html: markdownToHTML(vision.content)
+                  }
+                })
+              ] : null,
             ]),
           ]),
         ])
@@ -320,8 +400,23 @@ const ContactPreview = ({ entry, widgetFor, getAsset }) => {
       overflowX: "hidden"
     }
   }, [
-    h("section", { className: "h-[calc(100vh-5rem)] max-md:h-auto max-md:min-h-[calc(100vh-5rem)] flex items-stretch" }, [
-      h("div", { className: "w-full grid grid-cols-2 max-md:grid-cols-1 h-full" }, [
+    h("section", { 
+      className: "h-[calc(100vh-5rem)] max-md:h-auto max-md:min-h-[calc(100vh-5rem)] flex items-stretch",
+      style: {
+        height: "calc(100vh - 5rem)",
+        display: "flex",
+        alignItems: "stretch"
+      }
+    }, [
+      h("div", { 
+        className: "w-full grid grid-cols-2 max-md:grid-cols-1 h-full",
+        style: {
+          width: "100%",
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          height: "100%"
+        }
+      }, [
         // Contact Info
         h("div", { 
           className: "bg-black text-white p-16 max-lg:p-12 max-md:p-8 max-sm:p-6 max-md:min-h-[60vh] flex flex-col justify-center",
@@ -344,13 +439,32 @@ const ContactPreview = ({ entry, widgetFor, getAsset }) => {
             }
           }, "Contact"),
 
-          h("div", { className: "mb-12" }, [
+          h("div", { 
+            className: "mb-12",
+            style: { marginBottom: "3rem" }
+          }, [
             // Address
             address.lines
-              ? h("div", { className: "mb-10 max-md:mb-8 max-sm:mb-8" }, [
-                  h("h2", { className: "text-xl max-md:text-lg mb-2 text-white font-normal" }, "Adresse"),
+              ? h("div", { 
+                  className: "mb-10 max-md:mb-8 max-sm:mb-8",
+                  style: { marginBottom: "2.5rem" }
+                }, [
+                  h("h2", { 
+                    className: "text-xl max-md:text-lg mb-2 text-white font-normal",
+                    style: {
+                      fontSize: "1.25rem",
+                      marginBottom: "0.5rem",
+                      color: "#fff",
+                      fontWeight: "400"
+                    }
+                  }, "Adresse"),
                   h("p", { 
                     className: "text-base max-md:text-sm max-sm:text-sm leading-relaxed text-gray-400",
+                    style: {
+                      fontSize: "1rem",
+                      lineHeight: "1.75",
+                      color: "#9ca3af"
+                    },
                     dangerouslySetInnerHTML: { __html: address.lines.join("<br />") }
                   }),
                 ])
@@ -358,20 +472,64 @@ const ContactPreview = ({ entry, widgetFor, getAsset }) => {
 
             // Phone
             data.phone
-              ? h("div", { className: "mb-10 max-md:mb-8 max-sm:mb-8" }, [
-                  h("h2", { className: "text-xl max-md:text-lg mb-2 text-white font-normal" }, "Téléphone"),
-                  h("p", { className: "text-base max-md:text-sm max-sm:text-sm leading-relaxed text-gray-400" }, data.phone),
+              ? h("div", { 
+                  className: "mb-10 max-md:mb-8 max-sm:mb-8",
+                  style: { marginBottom: "2.5rem" }
+                }, [
+                  h("h2", { 
+                    className: "text-xl max-md:text-lg mb-2 text-white font-normal",
+                    style: {
+                      fontSize: "1.25rem",
+                      marginBottom: "0.5rem",
+                      color: "#fff",
+                      fontWeight: "400"
+                    }
+                  }, "Téléphone"),
+                  h("p", { 
+                    className: "text-base max-md:text-sm max-sm:text-sm leading-relaxed text-gray-400",
+                    style: {
+                      fontSize: "1rem",
+                      lineHeight: "1.75",
+                      color: "#9ca3af"
+                    }
+                  }, data.phone),
                 ])
               : null,
 
             // Email
             data.email
-              ? h("div", { className: "mb-10 max-md:mb-8 max-sm:mb-8" }, [
-                  h("h2", { className: "text-xl max-md:text-lg mb-2 text-white font-normal" }, "Email"),
-                  h("p", { className: "text-base max-md:text-sm max-sm:text-sm leading-relaxed text-gray-400" }, [
+              ? h("div", { 
+                  className: "mb-10 max-md:mb-8 max-sm:mb-8",
+                  style: { marginBottom: "2.5rem" }
+                }, [
+                  h("h2", { 
+                    className: "text-xl max-md:text-lg mb-2 text-white font-normal",
+                    style: {
+                      fontSize: "1.25rem",
+                      marginBottom: "0.5rem",
+                      color: "#fff",
+                      fontWeight: "400"
+                    }
+                  }, "Email"),
+                  h("p", { 
+                    className: "text-base max-md:text-sm max-sm:text-sm leading-relaxed text-gray-400",
+                    style: {
+                      fontSize: "1rem",
+                      lineHeight: "1.75",
+                      color: "#9ca3af"
+                    }
+                  }, [
                     h("a", { 
                       href: `mailto:${data.email}`,
-                      className: "text-white no-underline font-light tracking-wide transition-all duration-300 inline-block hover:text-white hover:no-underline hover:transform hover:-translate-y-0.5"
+                      className: "text-white no-underline font-light tracking-wide transition-all duration-300 inline-block hover:text-white hover:no-underline hover:transform hover:-translate-y-0.5",
+                      style: {
+                        color: "#fff",
+                        textDecoration: "none",
+                        fontWeight: "300",
+                        letterSpacing: "0.025em",
+                        transition: "all 0.3s ease",
+                        display: "inline-block"
+                      }
                     }, data.email),
                   ]),
                 ])
@@ -379,16 +537,42 @@ const ContactPreview = ({ entry, widgetFor, getAsset }) => {
 
             // Website
             website.url
-              ? h("div", { className: "mb-10 max-md:mb-8 max-sm:mb-8" }, [
-                  h("h2", { className: "text-xl max-md:text-lg mb-2 text-white font-normal" }, "Site Web"),
-                  h("p", { className: "text-base max-md:text-sm max-sm:text-sm leading-relaxed text-gray-400" }, [
+              ? h("div", { 
+                  className: "mb-10 max-md:mb-8 max-sm:mb-8",
+                  style: { marginBottom: "2.5rem" }
+                }, [
+                  h("h2", { 
+                    className: "text-xl max-md:text-lg mb-2 text-white font-normal",
+                    style: {
+                      fontSize: "1.25rem",
+                      marginBottom: "0.5rem",
+                      color: "#fff",
+                      fontWeight: "400"
+                    }
+                  }, "Site Web"),
+                  h("p", { 
+                    className: "text-base max-md:text-sm max-sm:text-sm leading-relaxed text-gray-400",
+                    style: {
+                      fontSize: "1rem",
+                      lineHeight: "1.75",
+                      color: "#9ca3af"
+                    }
+                  }, [
                     h(
                       "a",
                       {
                         href: website.url,
                         target: "_blank",
                         rel: "noopener noreferrer",
-                        className: "text-white no-underline font-light tracking-wide transition-all duration-300 inline-block hover:text-white hover:no-underline hover:transform hover:-translate-y-0.5"
+                        className: "text-white no-underline font-light tracking-wide transition-all duration-300 inline-block hover:text-white hover:no-underline hover:transform hover:-translate-y-0.5",
+                        style: {
+                          color: "#fff",
+                          textDecoration: "none",
+                          fontWeight: "300",
+                          letterSpacing: "0.025em",
+                          transition: "all 0.3s ease",
+                          display: "inline-block"
+                        }
                       },
                       website.label || website.url
                     ),
@@ -400,19 +584,46 @@ const ContactPreview = ({ entry, widgetFor, getAsset }) => {
           // Projects section
           projects.title
             ? h("div", {}, [
-                h("h2", { className: "text-xl max-md:text-lg mb-2 text-white font-normal" }, projects.title),
-                h("p", { className: "text-base max-md:text-sm max-sm:text-sm text-gray-400 leading-relaxed" }, projects.text || ""),
+                h("h2", { 
+                  className: "text-xl max-md:text-lg mb-2 text-white font-normal",
+                  style: {
+                    fontSize: "1.25rem",
+                    marginBottom: "0.5rem",
+                    color: "#fff",
+                    fontWeight: "400"
+                  }
+                }, projects.title),
+                h("p", { 
+                  className: "text-base max-md:text-sm max-sm:text-sm text-gray-400 leading-relaxed",
+                  style: {
+                    fontSize: "1rem",
+                    color: "#9ca3af",
+                    lineHeight: "1.75"
+                  }
+                }, projects.text || ""),
               ])
             : null,
         ]),
 
         // Contact Image
         image.path
-          ? h("div", { className: "overflow-hidden max-md:min-h-[40vh]" }, [
+          ? h("div", { 
+              className: "overflow-hidden max-md:min-h-[40vh]",
+              style: {
+                overflow: "hidden",
+                minHeight: "40vh"
+              }
+            }, [
               h("img", {
                 src: getAsset(image.path),
                 alt: image.alt || "Atelier Architecture Navale",
                 className: "w-full h-full object-cover object-center",
+                style: {
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center"
+                }
               }),
             ])
           : null,
