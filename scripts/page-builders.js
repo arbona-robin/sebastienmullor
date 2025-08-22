@@ -1,5 +1,5 @@
 const { metaTags, structuredDataPerson } = require("./utils/meta-generator");
-const { renderTemplate, paragraphHTML } = require("./utils/template-renderer");
+const { renderTemplate, paragraphHTML, markdownToHTML } = require("./utils/template-renderer");
 const { readJSON, loadTemplate, writePage } = require("./utils/file-utils");
 
 function buildIndex(site) {
@@ -29,12 +29,13 @@ function buildArchitecture(site) {
     HEAD_META: headMeta,
     NAME: data.intro.name,
     ROLE: data.intro.role,
-    INTRO_PARAGRAPHS: paragraphHTML(data.intro.paragraphs),
+    // Support both old paragraphs array and new content markdown
+    INTRO_PARAGRAPHS: data.intro.content ? markdownToHTML(data.intro.content) : paragraphHTML(data.intro.paragraphs || []),
     QUOTE: data.intro.quote,
     INTRO_IMAGE: data.intro.image,
-    FORMATION_PARAGRAPHS: paragraphHTML(data.formation.paragraphs),
-    PHILOSOPHY_PARAGRAPHS: paragraphHTML(data.philosophy.paragraphs),
-    VISION_PARAGRAPHS: paragraphHTML(data.vision.paragraphs)
+    FORMATION_PARAGRAPHS: data.formation.content ? markdownToHTML(data.formation.content) : paragraphHTML(data.formation.paragraphs || []),
+    PHILOSOPHY_PARAGRAPHS: data.philosophy.content ? markdownToHTML(data.philosophy.content) : paragraphHTML(data.philosophy.paragraphs || []),
+    VISION_PARAGRAPHS: data.vision.content ? markdownToHTML(data.vision.content) : paragraphHTML(data.vision.paragraphs || [])
   };
   
   const html = renderTemplate(template, templateData);

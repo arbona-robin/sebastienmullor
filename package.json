@@ -9,6 +9,7 @@
     "clean": "rm -rf dist/"
   },
   "dependencies": {
+    "marked": "^4.3.0",
     "mustache": "^4.2.0"
   },
   "devDependencies": {

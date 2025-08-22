@@ -54,30 +54,22 @@ collections:
               - { label: "Rôle", name: "role", widget: "string" }
               - { label: "Citation", name: "quote", widget: "string" }
               - { label: "Image", name: "image", widget: "image" }
-              - label: "Paragraphes"
-                name: "paragraphs"
-                widget: list
+              - { label: "Texte", name: "content", widget: "markdown" }
           - label: "Formation"
             name: "formation"
             widget: object
             fields:
-              - label: "Paragraphes"
-                name: "paragraphs"
-                widget: list
+              - { label: "Texte", name: "content", widget: "markdown" }
           - label: "Philosophie"
             name: "philosophy"
             widget: object
             fields:
-              - label: "Paragraphes"
-                name: "paragraphs"
-                widget: list
+              - { label: "Texte", name: "content", widget: "markdown" }
           - label: "Vision"
             name: "vision"
             widget: object
             fields:
-              - label: "Paragraphes"
-                name: "paragraphs"
-                widget: list
+              - { label: "Texte", name: "content", widget: "markdown" }
       - label: "Page Contact"
         name: "contact"
         file: "content/contact.json"
@@ -96,6 +88,7 @@ collections:
               - label: "Lignes"
                 name: "lines"
                 widget: list
+                field: { label: "Ligne", name: "line", widget: "string" }
           - { label: "Téléphone", name: "phone", widget: "string" }
           - { label: "Email", name: "email", widget: "string" }
           - label: "Site Web"

@@ -71,9 +71,11 @@ const ArchitecturePreview = ({ entry, widgetFor, getAsset }) => {
         h("div", { className: "intro-text" }, [
           h("h1", {}, intro.name || ""),
           h("h2", {}, intro.role || ""),
-          ...(intro.paragraphs || []).map((paragraph, index) =>
-            h("p", { key: index }, paragraph)
-          ),
+          intro.content ? h("div", { 
+            dangerouslySetInnerHTML: { 
+              __html: marked(intro.content, { breaks: true, gfm: true })
+            }
+          }) : null,
           intro.quote ? h("div", { className: "quote" }, intro.quote) : null,
         ]),
         intro.image
@@ -89,42 +91,48 @@ const ArchitecturePreview = ({ entry, widgetFor, getAsset }) => {
     ]),
 
     // Formation Section
-    formation.paragraphs
+    formation.content
       ? h("section", { className: "full-text-section" }, [
           h("div", { className: "container" }, [
             h("div", { className: "text-content" }, [
               h("h2", {}, "Formation"),
-              ...formation.paragraphs.map((paragraph, index) =>
-                h("p", { key: index }, paragraph)
-              ),
+              h("div", { 
+                dangerouslySetInnerHTML: { 
+                  __html: marked(formation.content, { breaks: true, gfm: true })
+                }
+              }),
             ]),
           ]),
         ])
       : null,
 
     // Philosophy Section
-    philosophy.paragraphs
+    philosophy.content
       ? h("section", { className: "full-text-section" }, [
           h("div", { className: "container" }, [
             h("div", { className: "text-content" }, [
               h("h2", {}, "Philosophie"),
-              ...philosophy.paragraphs.map((paragraph, index) =>
-                h("p", { key: index }, paragraph)
-              ),
+              h("div", { 
+                dangerouslySetInnerHTML: { 
+                  __html: marked(philosophy.content, { breaks: true, gfm: true })
+                }
+              }),
             ]),
           ]),
         ])
       : null,
 
     // Vision Section
-    vision.paragraphs
+    vision.content
       ? h("section", { className: "full-text-section" }, [
           h("div", { className: "container" }, [
             h("div", { className: "text-content" }, [
               h("h2", {}, "Vision"),
-              ...vision.paragraphs.map((paragraph, index) =>
-                h("p", { key: index }, paragraph)
-              ),
+              h("div", { 
+                dangerouslySetInnerHTML: { 
+                  __html: marked(vision.content, { breaks: true, gfm: true })
+                }
+              }),
             ]),
           ]),
         ])
