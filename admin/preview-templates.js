@@ -2,9 +2,6 @@
 
 console.log("Preview templates script loaded");
 
-// Check what's available in global scope
-console.log("Available globals:", { h: window.h, React: window.React, CMS: window.CMS });
-
 // Use the global h function provided by Decap CMS, or React.createElement as fallback
 const h = window.h || (window.React && window.React.createElement) || function(tag, props, ...children) {
   console.error("No h function available");
@@ -43,18 +40,15 @@ function markdownToHTML(content) {
 
 // Index/Réalisations page preview
 const IndexPreview = ({ entry, widgetFor, getAsset }) => {
-  console.log("IndexPreview called", { entry, widgetFor, getAsset });
-  
   try {
     const data = entry.getIn(["data"]).toJS();
-    console.log("Index data:", data);
     const meta = data.meta || {};
     const hero = data.hero || {};
     const gallery = data.gallery || [];
 
   return h("div", { 
-    className: "animate-fade-in font-sans overflow-x-hidden bg-black text-white",
-    style: { minHeight: "100vh" }
+    className: "font-sans overflow-x-hidden bg-black text-white",
+    style: { minHeight: "100vh", backgroundColor: "#000", color: "#fff" }
   }, [
     // Hero Section
     h("section", { className: "h-screen bg-black flex items-center justify-center relative" }, [
@@ -294,8 +288,6 @@ const ContactPreview = ({ entry, widgetFor, getAsset }) => {
 };
 
 // Register all preview templates
-console.log("Registering preview templates...");
 CMS.registerPreviewTemplate("index", IndexPreview);
 CMS.registerPreviewTemplate("architecture", ArchitecturePreview);
 CMS.registerPreviewTemplate("contact", ContactPreview);
-console.log("Preview templates registered");
