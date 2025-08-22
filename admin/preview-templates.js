@@ -38,7 +38,7 @@ const IndexPreview = ({ entry, widgetFor, getAsset }) => {
   const gallery = data.gallery || [];
 
   return h("div", { 
-    className: "opacity-0 animate-[fadeIn_0.6s_ease-in-out_forwards] page-transition font-sans overflow-x-hidden bg-black text-white",
+    className: "animate-fade-in font-sans overflow-x-hidden bg-black text-white",
     style: { minHeight: "100vh" }
   }, [
     // Hero Section
@@ -56,7 +56,7 @@ const IndexPreview = ({ entry, widgetFor, getAsset }) => {
             "a",
             {
               href: "#gallery",
-              className: "inline-flex items-center gap-3 text-white no-underline font-light text-lg md:text-base sm:text-sm tracking-wider py-4 px-8 md:py-3 md:px-6 sm:py-3 sm:px-5 border-2 border-white/30 rounded-full bg-white/5 backdrop-blur-md transition-all duration-500 relative overflow-hidden hover:border-white/60 hover:bg-white/10 hover:transform hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/10 animate-[pulse_3s_infinite]",
+              className: "inline-flex items-center gap-3 text-white no-underline font-light text-lg md:text-base sm:text-sm tracking-wider py-4 px-8 md:py-3 md:px-6 sm:py-3 sm:px-5 border-2 border-white/30 rounded-full bg-white/5 backdrop-blur-md transition-all duration-500 relative overflow-hidden hover:border-white/60 hover:bg-white/10 hover:transform hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/10 animate-pulse",
             },
             [h("span", {}, hero.cta_text || "Découvrir les projets")]
           ),
@@ -98,7 +98,7 @@ const ArchitecturePreview = ({ entry, widgetFor, getAsset }) => {
   const vision = data.vision || {};
 
   return h("div", { 
-    className: "pt-20 min-h-screen bg-black opacity-0 animate-[fadeIn_0.6s_ease-in-out_forwards] page-transition font-sans overflow-x-hidden text-white",
+    className: "pt-20 min-h-screen bg-black animate-fade-in font-sans overflow-x-hidden text-white",
     style: { minHeight: "100vh" }
   }, [
     // Intro Section
@@ -188,7 +188,7 @@ const ContactPreview = ({ entry, widgetFor, getAsset }) => {
   const image = data.image || {};
 
   return h("div", { 
-    className: "pt-20 min-h-screen bg-black opacity-0 animate-[fadeIn_0.6s_ease-in-out_forwards] contact-page page-transition font-sans overflow-x-hidden text-white",
+    className: "pt-20 min-h-screen bg-black animate-fade-in font-sans overflow-x-hidden text-white",
     style: { minHeight: "100vh" }
   }, [
     h("section", { className: "h-[calc(100vh-5rem)] max-md:h-auto max-md:min-h-[calc(100vh-5rem)] flex items-stretch" }, [
