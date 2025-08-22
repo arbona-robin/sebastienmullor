@@ -2,16 +2,31 @@
 
 // Simple markdown to HTML helper (fallback if marked is not available)
 function markdownToHTML(content) {
-  if (typeof marked !== 'undefined') {
-    return marked(content, { breaks: true, gfm: true });
+  if (!content) return '';
+  
+  try {
+    // Try to use marked if available
+    if (typeof marked !== 'undefined' && marked.parse) {
+      return marked.parse(content, { breaks: true, gfm: true });
+    }
+  } catch (error) {
+    console.warn('Marked library failed, using fallback:', error);
   }
   
-  // Simple fallback - convert line breaks to paragraphs
+  // Robust fallback - convert markdown basics to HTML
   return content
+    // Convert double line breaks to paragraph breaks
     .split('\n\n')
     .map(paragraph => paragraph.trim())
     .filter(paragraph => paragraph.length > 0)
-    .map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`)
+    .map(p => {
+      // Basic markdown formatting
+      let html = p
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
+        .replace(/\*(.*?)\*/g, '<em>$1</em>') // Italic
+        .replace(/\n/g, '<br>'); // Line breaks
+      return `<p>${html}</p>`;
+    })
     .join('\n');
 }
 
