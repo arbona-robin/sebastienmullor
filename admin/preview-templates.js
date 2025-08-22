@@ -1,5 +1,20 @@
 // Preview templates for Decap CMS using your existing website structure
 
+// Simple markdown to HTML helper (fallback if marked is not available)
+function markdownToHTML(content) {
+  if (typeof marked !== 'undefined') {
+    return marked(content, { breaks: true, gfm: true });
+  }
+  
+  // Simple fallback - convert line breaks to paragraphs
+  return content
+    .split('\n\n')
+    .map(paragraph => paragraph.trim())
+    .filter(paragraph => paragraph.length > 0)
+    .map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`)
+    .join('\n');
+}
+
 // Index/Réalisations page preview
 const IndexPreview = ({ entry, widgetFor, getAsset }) => {
   const data = entry.getIn(["data"]).toJS();
@@ -73,7 +88,7 @@ const ArchitecturePreview = ({ entry, widgetFor, getAsset }) => {
           h("h2", {}, intro.role || ""),
           intro.content ? h("div", { 
             dangerouslySetInnerHTML: { 
-              __html: marked(intro.content, { breaks: true, gfm: true })
+              __html: markdownToHTML(intro.content)
             }
           }) : null,
           intro.quote ? h("div", { className: "quote" }, intro.quote) : null,
@@ -98,7 +113,7 @@ const ArchitecturePreview = ({ entry, widgetFor, getAsset }) => {
               h("h2", {}, "Formation"),
               h("div", { 
                 dangerouslySetInnerHTML: { 
-                  __html: marked(formation.content, { breaks: true, gfm: true })
+                  __html: markdownToHTML(formation.content)
                 }
               }),
             ]),
@@ -114,7 +129,7 @@ const ArchitecturePreview = ({ entry, widgetFor, getAsset }) => {
               h("h2", {}, "Philosophie"),
               h("div", { 
                 dangerouslySetInnerHTML: { 
-                  __html: marked(philosophy.content, { breaks: true, gfm: true })
+                  __html: markdownToHTML(philosophy.content)
                 }
               }),
             ]),
@@ -130,7 +145,7 @@ const ArchitecturePreview = ({ entry, widgetFor, getAsset }) => {
               h("h2", {}, "Vision"),
               h("div", { 
                 dangerouslySetInnerHTML: { 
-                  __html: marked(vision.content, { breaks: true, gfm: true })
+                  __html: markdownToHTML(vision.content)
                 }
               }),
             ]),
