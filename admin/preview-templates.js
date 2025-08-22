@@ -1,5 +1,7 @@
 // Preview templates for Decap CMS using Tailwind CSS classes
 
+console.log("Preview templates script loaded");
+
 // Simple markdown to HTML helper (fallback if marked is not available)
 function markdownToHTML(content) {
   if (!content) return '';
@@ -275,6 +277,8 @@ const ContactPreview = ({ entry, widgetFor, getAsset }) => {
 };
 
 // Register all preview templates
+console.log("Registering preview templates...");
 CMS.registerPreviewTemplate("index", IndexPreview);
 CMS.registerPreviewTemplate("architecture", ArchitecturePreview);
 CMS.registerPreviewTemplate("contact", ContactPreview);
+console.log("Preview templates registered");
