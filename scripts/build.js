@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 /**
- * Simple build script to merge JSON content into HTML templates.
+ * Simple build script to merge JSON content into HTML templates using Mustache.js.
  * Generated pages: index.html, architecture.html, contact.html
  * Edit templates in templates/ and content in content/.
  */
 const fs = require("fs");
 const path = require("path");
+const Mustache = require("mustache");
 
 const root = process.cwd();
 const templateDir = path.join(root, "templates");
@@ -107,20 +108,18 @@ function structuredDataPerson() {
 
 function buildIndex() {
   const data = readJSON("index");
-  let tpl = loadTemplate("index");
+  const template = loadTemplate("index");
   const headMeta = metaTags(data) + "\n    " + structuredDataPerson();
-  tpl = tpl
-    .replace(/{{PAGE_TITLE}}/g, data.meta.title)
-    .replace(/{{HERO_CTA}}/g, data.hero.cta_text)
-    .replace(/{{HEAD_META}}/, headMeta);
-  const galleryHtml = data.gallery
-    .map(
-      (item) =>
-        `        <div class=\"gallery-item\">\n          <img src=\"${item.image}\" alt=\"${item.alt}\" />\n        </div>`
-    )
-    .join("\n");
-  tpl = tpl.replace("<!-- GALLERY_ITEMS -->", galleryHtml);
-  writePage("index", tpl);
+  
+  const templateData = {
+    ...data,
+    PAGE_TITLE: data.meta.title,
+    HERO_CTA: data.hero.cta_text,
+    HEAD_META: headMeta
+  };
+  
+  const html = Mustache.render(template, templateData);
+  writePage("index", html);
 }
 
 function paragraphHTML(arr) {
@@ -131,46 +130,50 @@ function paragraphHTML(arr) {
 
 function buildArchitecture() {
   const data = readJSON("architecture");
-  let tpl = loadTemplate("architecture");
+  const template = loadTemplate("architecture");
   const headMeta = metaTags(data);
-  tpl = tpl
-    .replace(/{{PAGE_TITLE}}/g, data.meta.title)
-    .replace(/{{HEAD_META}}/, headMeta)
-    .replace(/{{NAME}}/g, data.intro.name)
-    .replace(/{{ROLE}}/g, data.intro.role)
-    .replace(/{{INTRO_PARAGRAPHS}}/g, paragraphHTML(data.intro.paragraphs))
-    .replace(/{{QUOTE}}/g, data.intro.quote)
-    .replace(/{{INTRO_IMAGE}}/g, data.intro.image)
-    .replace(
-      /{{FORMATION_PARAGRAPHS}}/g,
-      paragraphHTML(data.formation.paragraphs)
-    )
-    .replace(
-      /{{PHILOSOPHY_PARAGRAPHS}}/g,
-      paragraphHTML(data.philosophy.paragraphs)
-    )
-    .replace(/{{VISION_PARAGRAPHS}}/g, paragraphHTML(data.vision.paragraphs));
-  writePage("architecture", tpl);
+  
+  const templateData = {
+    ...data,
+    PAGE_TITLE: data.meta.title,
+    HEAD_META: headMeta,
+    NAME: data.intro.name,
+    ROLE: data.intro.role,
+    INTRO_PARAGRAPHS: paragraphHTML(data.intro.paragraphs),
+    QUOTE: data.intro.quote,
+    INTRO_IMAGE: data.intro.image,
+    FORMATION_PARAGRAPHS: paragraphHTML(data.formation.paragraphs),
+    PHILOSOPHY_PARAGRAPHS: paragraphHTML(data.philosophy.paragraphs),
+    VISION_PARAGRAPHS: paragraphHTML(data.vision.paragraphs)
+  };
+  
+  const html = Mustache.render(template, templateData);
+  writePage("architecture", html);
 }
 
 function buildContact() {
   const data = readJSON("contact");
-  let tpl = loadTemplate("contact");
+  const template = loadTemplate("contact");
   const headMeta = metaTags(data);
-  tpl = tpl
-    .replace(/{{PAGE_TITLE}}/g, data.meta.title)
-    .replace(/{{HEAD_META}}/, headMeta)
-    .replace(/{{ADDRESS}}/g, data.address.lines.join("<br />"))
-    .replace(/{{PHONE}}/g, data.phone)
-    .replace(/{{EMAIL}}/g, data.email)
-    .replace(/{{EMAIL_LINK}}/g, data.email)
-    .replace(/{{WEBSITE_URL}}/g, data.website.url)
-    .replace(/{{WEBSITE_LABEL}}/g, data.website.label)
-    .replace(/{{PROJECTS_TITLE}}/g, data.projects.title)
-    .replace(/{{PROJECTS_TEXT}}/g, data.projects.text)
-    .replace(/{{CONTACT_IMAGE}}/g, data.image.path)
-    .replace(/{{CONTACT_IMAGE_ALT}}/g, data.image.alt);
-  writePage("contact", tpl);
+  
+  const templateData = {
+    ...data,
+    PAGE_TITLE: data.meta.title,
+    HEAD_META: headMeta,
+    ADDRESS: data.address.lines.join("<br />"),
+    PHONE: data.phone,
+    EMAIL: data.email,
+    EMAIL_LINK: data.email,
+    WEBSITE_URL: data.website.url,
+    WEBSITE_LABEL: data.website.label,
+    PROJECTS_TITLE: data.projects.title,
+    PROJECTS_TEXT: data.projects.text,
+    CONTACT_IMAGE: data.image.path,
+    CONTACT_IMAGE_ALT: data.image.alt
+  };
+  
+  const html = Mustache.render(template, templateData);
+  writePage("contact", html);
 }
 
 function buildAll() {
