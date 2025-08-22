@@ -1,7 +1,9 @@
 backend:
   name: github
-  repo: arbona-robin/sebastienmullor # Update if forked
+  repo: arbona-robin/sebastienmullor
   branch: main
+  base_url: https://oauth.arbona.dev
+  auth_endpoint: auth
 
 media_folder: "assets"
 public_folder: "/assets"
