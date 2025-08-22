@@ -1,0 +1,22 @@
+{
+  "baseUrl": "https://sebastienmullor.github.io/sebastienmullor/",
+  "siteName": "Sébastien Mullor - Architecte Naval",
+  "author": "Sébastien Mullor",
+  "person": {
+    "name": "Sébastien Mullor",
+    "jobTitle": "Architecte Naval",
+    "description": "Architecte et ingénieur naval spécialisé en conception de yachts et bateaux professionnels",
+    "image": "assets/archi_navale.png",
+    "addressLocality": "Marseille",
+    "addressCountry": "FR",
+    "email": "sebastien.mullor@gmail.com",
+    "telephone": "+33-6-XX-XX-XX-XX",
+    "knowsAbout": [
+      "Architecture navale",
+      "Conception de yachts",
+      "Ingénierie marine",
+      "Design nautique"
+    ],
+    "sameAs": ["https://sebastien-mullor.fr"]
+  }
+}

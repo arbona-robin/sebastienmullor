@@ -1,0 +1,118 @@
+backend:
+  name: github
+  repo: arbona-robin/sebastienmullor # Update if forked
+  branch: main
+
+media_folder: "assets"
+public_folder: "/assets"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Page Réalisations"
+        name: "index"
+        file: "content/index.json"
+        fields:
+          - label: "Meta"
+            name: "meta"
+            widget: object
+            fields:
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Mots-clés", name: "keywords", widget: "string" }
+          - label: "Hero"
+            name: "hero"
+            widget: object
+            fields:
+              - { label: "Texte CTA", name: "cta_text", widget: "string" }
+          - label: "Galerie"
+            name: "gallery"
+            widget: list
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Alt", name: "alt", widget: "string" }
+      - label: "Page Architecture"
+        name: "architecture"
+        file: "content/architecture.json"
+        fields:
+          - label: "Meta"
+            name: "meta"
+            widget: object
+            fields:
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "Intro"
+            name: "intro"
+            widget: object
+            fields:
+              - { label: "Nom", name: "name", widget: "string" }
+              - { label: "Rôle", name: "role", widget: "string" }
+              - { label: "Citation", name: "quote", widget: "string" }
+              - { label: "Image", name: "image", widget: "image" }
+              - label: "Paragraphes"
+                name: "paragraphs"
+                widget: list
+                field: { label: "Paragraphe", name: "paragraph", widget: text }
+          - label: "Formation"
+            name: "formation"
+            widget: object
+            fields:
+              - label: "Paragraphes"
+                name: "paragraphs"
+                widget: list
+                field: { label: "Paragraphe", name: "paragraph", widget: text }
+          - label: "Philosophie"
+            name: "philosophy"
+            widget: object
+            fields:
+              - label: "Paragraphes"
+                name: "paragraphs"
+                widget: list
+                field: { label: "Paragraphe", name: "paragraph", widget: text }
+          - label: "Vision"
+            name: "vision"
+            widget: object
+            fields:
+              - label: "Paragraphes"
+                name: "paragraphs"
+                widget: list
+                field: { label: "Paragraphe", name: "paragraph", widget: text }
+      - label: "Page Contact"
+        name: "contact"
+        file: "content/contact.json"
+        fields:
+          - label: "Meta"
+            name: "meta"
+            widget: object
+            fields:
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "Adresse"
+            name: "address"
+            widget: object
+            fields:
+              - label: "Lignes"
+                name: "lines"
+                widget: list
+                field: { label: "Ligne", name: "line", widget: string }
+          - { label: "Téléphone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - label: "Site Web"
+            name: "website"
+            widget: object
+            fields:
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+          - label: "Section Projets"
+            name: "projects"
+            widget: object
+            fields:
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Texte", name: "text", widget: "text" }
+          - label: "Image"
+            name: "image"
+            widget: object
+            fields:
+              - { label: "Fichier", name: "path", widget: "image" }
+              - { label: "Alt", name: "alt", widget: "string" }

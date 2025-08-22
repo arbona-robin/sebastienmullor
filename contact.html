@@ -1,18 +1,13 @@
+<!-- Generated file. Do not edit directly. Edit templates/contact.template.html and content/contact.json -->
 <!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- SEO Meta Tags -->
     <title>Contact - Sébastien Mullor | Architecte Naval Marseille</title>
     <meta
       name="description"
       content="Contactez Sébastien Mullor, architecte naval à Marseille. Demandez un devis pour vos projets de conception de yachts et bateaux professionnels."
-    />
-    <meta
-      name="keywords"
-      content="contact architecte naval, devis yacht, Marseille, conception bateau, Sébastien Mullor, architecture navale"
     />
     <meta name="author" content="Sébastien Mullor" />
     <meta name="robots" content="index, follow" />
@@ -20,8 +15,6 @@
       rel="canonical"
       href="https://sebastienmullor.github.io/sebastienmullor/contact.html"
     />
-
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
@@ -46,8 +39,6 @@
       property="og:site_name"
       content="Sébastien Mullor - Architecte Naval"
     />
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:url"
@@ -65,14 +56,6 @@
       name="twitter:image"
       content="https://sebastienmullor.github.io/sebastienmullor/assets/bateau_1.png"
     />
-
-    <!-- WhatsApp / Telegram -->
-    <meta
-      property="og:image:alt"
-      content="Contact Sébastien Mullor - Architecte Naval"
-    />
-
-    <!-- Favicon -->
     <link
       rel="icon"
       type="image/png"
@@ -86,11 +69,9 @@
       href="assets/logo-removebg.png"
     />
     <link rel="apple-touch-icon" href="assets/logo-removebg.png" />
-
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Navigation sticky transparente -->
     <nav class="navbar">
       <div class="nav-container">
         <div class="nav-logo">
@@ -103,36 +84,23 @@
           </li>
           <li><a href="contact.html" class="nav-link active">Contact</a></li>
         </ul>
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <div class="hamburger"><span></span><span></span><span></span></div>
       </div>
     </nav>
-
-    <!-- Page Contact -->
     <main class="contact-page">
       <section class="contact-section">
         <div class="contact-container">
-          <!-- Bandeau noir avec informations à gauche -->
           <div class="contact-info">
             <h1>Contact</h1>
             <div class="contact-details">
               <div class="contact-item">
                 <h2>Adresse</h2>
-                <p>
-                  60 Boulevard Vauban<br />
-                  13006 Marseille<br />
-                  France
-                </p>
+                <p>60 Boulevard Vauban<br />13006 Marseille<br />France</p>
               </div>
-
               <div class="contact-item">
                 <h2>Téléphone</h2>
                 <p>+33 6 62 08 66 36</p>
               </div>
-
               <div class="contact-item">
                 <h2>Email</h2>
                 <p>
@@ -141,7 +109,6 @@
                   >
                 </p>
               </div>
-
               <div class="contact-item">
                 <h2>Site Web</h2>
                 <p>
@@ -154,7 +121,6 @@
                 </p>
               </div>
             </div>
-
             <div class="contact-social">
               <h2>Projets & Collaborations</h2>
               <p>
@@ -164,32 +130,27 @@
               </p>
             </div>
           </div>
-
-          <!-- Photo sur la droite -->
           <div class="contact-image">
             <img src="assets/bateau_1.jpg" alt="Atelier Architecture Navale" />
           </div>
         </div>
       </section>
     </main>
-
     <script>
-      // Menu hamburger
       const hamburger = document.querySelector(".hamburger");
       const navMenu = document.querySelector(".nav-menu");
-
-      hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
-      });
-
-      // Fermer le menu quand on clique sur un lien
-      document.querySelectorAll(".nav-link").forEach((n) =>
-        n.addEventListener("click", () => {
-          hamburger.classList.remove("active");
-          navMenu.classList.remove("active");
-        })
-      );
+      if (hamburger) {
+        hamburger.addEventListener("click", () => {
+          hamburger.classList.toggle("active");
+          navMenu.classList.toggle("active");
+        });
+        document.querySelectorAll(".nav-link").forEach((n) =>
+          n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+          })
+        );
+      }
     </script>
   </body>
 </html>

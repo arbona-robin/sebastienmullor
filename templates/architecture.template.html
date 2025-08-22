@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{PAGE_TITLE}}</title>
+    {{HEAD_META}}
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="loading-spinner"></div>
+    </div>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <img src="assets/logo-removebg.png" alt="Logo Sébastien Mullor" />
+        </div>
+        <ul class="nav-menu">
+          <li>
+            <a href="index.html" class="nav-link transition-link"
+              >Réalisations</a
+            >
+          </li>
+          <li>
+            <a href="architecture.html" class="nav-link active transition-link"
+              >Architecture Navale</a
+            >
+          </li>
+          <li>
+            <a href="contact.html" class="nav-link transition-link">Contact</a>
+          </li>
+        </ul>
+        <div class="hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </nav>
+    <main class="architecture-page page-transition">
+      <section class="intro-section">
+        <div class="intro-container">
+          <div class="intro-text">
+            <h1>{{NAME}}</h1>
+            <h2>{{ROLE}}</h2>
+            {{INTRO_PARAGRAPHS}}
+            <p class="quote"><em>{{QUOTE}}</em></p>
+          </div>
+          <div class="intro-image">
+            <img src="{{INTRO_IMAGE}}" alt="Architecture Navale" />
+          </div>
+        </div>
+      </section>
+      <section class="full-text-section">
+        <div class="container">
+          <div class="text-content">
+            <h2>Formation & Expérience</h2>
+            {{FORMATION_PARAGRAPHS}}
+            <h3>Ma Philosophie de Conception</h3>
+            {{PHILOSOPHY_PARAGRAPHS}}
+            <h3>Ma Vision</h3>
+            {{VISION_PARAGRAPHS}}
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="page-transitions.js"></script>
+  </body>
+</html>

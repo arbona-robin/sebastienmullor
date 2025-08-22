@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "title": "Contact - Sébastien Mullor | Architecte Naval Marseille",
+    "description": "Contactez Sébastien Mullor, architecte naval à Marseille. Demandez un devis pour vos projets de conception de yachts et bateaux professionnels.",
+    "image": "assets/bateau_1.png",
+    "path": "contact.html",
+    "type": "website"
+  },
+  "address": {
+    "lines": ["60 Boulevard Vauban", "13006 Marseille", "France"]
+  },
+  "phone": "+33 6 62 08 66 36",
+  "email": "sebastienmullor@outlook.fr",
+  "website": {
+    "url": "https://www.sebastienmullor.fr",
+    "label": "www.sebastienmullor.fr"
+  },
+  "projects": {
+    "title": "Projets & Collaborations",
+    "text": "N'hésitez pas à me contacter pour discuter de vos projets d'architecture navale et explorer ensemble les possibilités de conception."
+  },
+  "image": {
+    "path": "assets/bateau_1.jpg",
+    "alt": "Atelier Architecture Navale"
+  }
+}

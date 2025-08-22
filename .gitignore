@@ -1,4 +1,10 @@
-# Fichiers de développement et documentation
+node_modules/
+*.log
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+dist/
+tmp/# Fichiers de développement et documentation
 *.pdf
 optimize_images.sh
 test-metadata.sh
