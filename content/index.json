@@ -11,12 +11,37 @@
     "cta_text": "Découvrir les projets"
   },
   "gallery": [
-    { "image": "assets/bateau_1.jpg", "alt": "Bateau 1" },
-    { "image": "assets/bateau_2.jpg", "alt": "Bateau 2" },
-    { "image": "assets/bateau_3.jpg", "alt": "Bateau 3" },
-    { "image": "assets/bateau_4.jpg", "alt": "Bateau 4" },
-    { "image": "assets/bateau_5.jpg", "alt": "Bateau 5" },
-    { "image": "assets/bateau_6.jpg", "alt": "Bateau 6" },
-    { "image": "assets/bateau_7.jpg", "alt": "Bateau 7" }
+    {
+      "image": "assets/bateau_1.jpg",
+      "alt": "Bateau 1"
+    },
+    {
+      "image": "assets/bateau_2.jpg",
+      "alt": "Bateau 2"
+    },
+    {
+      "image": "assets/bateau_3.jpg",
+      "alt": "Bateau 3"
+    },
+    {
+      "image": "assets/bateau_4.jpg",
+      "alt": "Bateau 4"
+    },
+    {
+      "image": "assets/bateau_5.jpg",
+      "alt": "Bateau 5"
+    },
+    {
+      "image": "assets/bateau_6.jpg",
+      "alt": "Bateau 6"
+    },
+    {
+      "image": "assets/bateau_7.jpg",
+      "alt": "Bateau 7"
+    },
+    {
+      "image": "/assets/bateau_8.jpg",
+      "alt": "Bateau 8"
+    }
   ]
 }
