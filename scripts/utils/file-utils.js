@@ -69,6 +69,13 @@ function copyStaticAssets() {
       fs.copyFileSync(src, dist);
     });
   }
+  
+  // Copy admin directory for Decap CMS
+  const adminDir = path.join(root, "admin");
+  const distAdminDir = path.join(distDir, "admin");
+  if (fs.existsSync(adminDir)) {
+    copyDir(adminDir, distAdminDir);
+  }
 }
 
 function copyDir(src, dest) {
