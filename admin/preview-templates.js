@@ -2,8 +2,14 @@
 
 console.log("Preview templates script loaded");
 
-// Use React.createElement (available in CMS context)
-const h = React.createElement;
+// Check what's available in global scope
+console.log("Available globals:", { h: window.h, React: window.React, CMS: window.CMS });
+
+// Use the global h function provided by Decap CMS, or React.createElement as fallback
+const h = window.h || (window.React && window.React.createElement) || function(tag, props, ...children) {
+  console.error("No h function available");
+  return null;
+};
 
 // Simple markdown to HTML helper (fallback if marked is not available)
 function markdownToHTML(content) {
