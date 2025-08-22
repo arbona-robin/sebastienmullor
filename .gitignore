@@ -1,7 +1,5 @@
-# Generated HTML files (built from templates)
-index.html
-architecture.html
-contact.html
+# Build output
+dist/
 
 node_modules/
 *.log

@@ -5,7 +5,8 @@
   "description": "Static site with JSON content and build scripts for Decap CMS integration",
   "scripts": {
     "build": "node scripts/build.js",
-    "dev": "node scripts/dev.js"
+    "dev": "node scripts/dev.js",
+    "clean": "rm -rf dist/"
   },
   "dependencies": {
     "mustache": "^4.2.0"
