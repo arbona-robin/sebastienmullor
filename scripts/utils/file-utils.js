@@ -35,15 +35,11 @@ function writePage(name, html) {
   fs.writeFileSync(path.join(distDir, name + ".html"), banner + html, "utf8");
 }
 
-function copyStaticAssets() {
+async function copyStaticAssets() {
   ensureDistDir();
   
-  // Copy CSS
-  const srcCss = path.join(root, "src/styles/main.css");
-  const distCss = path.join(distDir, "styles.css");
-  if (fs.existsSync(srcCss)) {
-    fs.copyFileSync(srcCss, distCss);
-  }
+  // Compile Tailwind CSS
+  await compileTailwindCSS();
   
   // Copy JS
   const srcJs = path.join(root, "src/scripts/page-transitions.js");
@@ -75,6 +71,52 @@ function copyStaticAssets() {
   const distAdminDir = path.join(distDir, "admin");
   if (fs.existsSync(adminDir)) {
     copyDir(adminDir, distAdminDir);
+  }
+}
+
+async function compileTailwindCSS() {
+  try {
+    const postcss = require('postcss');
+    const tailwindcss = require('@tailwindcss/postcss');
+    const autoprefixer = require('autoprefixer');
+    
+    const srcCss = path.join(root, "src/styles/tailwind.css");
+    const distCss = path.join(distDir, "styles.css");
+    
+    if (!fs.existsSync(srcCss)) {
+      console.error('Tailwind CSS source file not found:', srcCss);
+      return;
+    }
+    
+    const css = fs.readFileSync(srcCss, 'utf8');
+    
+    try {
+      const result = await postcss([
+        tailwindcss,
+        autoprefixer
+      ]).process(css, { from: srcCss, to: distCss });
+      
+      fs.writeFileSync(distCss, result.css);
+      if (result.map) {
+        fs.writeFileSync(distCss + '.map', result.map.toString());
+      }
+      console.log('[build] Tailwind CSS compiled successfully');
+    } catch (error) {
+      console.error('Failed to compile Tailwind CSS:', error.message);
+      // Fallback: copy the source file if compilation fails
+      if (fs.existsSync(srcCss)) {
+        fs.copyFileSync(srcCss, distCss);
+      }
+    }
+    
+  } catch (error) {
+    console.error('Failed to load Tailwind CSS dependencies:', error.message);
+    // Fallback: copy the source file if dependencies are missing
+    const srcCss = path.join(root, "src/styles/tailwind.css");
+    const distCss = path.join(distDir, "styles.css");
+    if (fs.existsSync(srcCss)) {
+      fs.copyFileSync(srcCss, distCss);
+    }
   }
 }
 

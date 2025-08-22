@@ -13,6 +13,11 @@
     "mustache": "^4.2.0"
   },
   "devDependencies": {
-    "chokidar": "^3.6.0"
+    "@tailwindcss/postcss": "^4.1.12",
+    "@tailwindcss/typography": "^0.5.16",
+    "autoprefixer": "^10.4.21",
+    "chokidar": "^3.6.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.12"
   }
 }

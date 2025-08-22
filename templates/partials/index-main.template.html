@@ -1,18 +1,23 @@
-    <main class="page-transition">
-      <section class="hero-section">
-        <div class="hero-content">
-          <div class="hero-logo">
-            <img src="assets/logo.png" alt="Logo Sébastien Mullor" />
+    <main class="opacity-0 animate-[fadeIn_0.6s_ease-in-out_forwards] page-transition">
+      <!-- Hero Section -->
+      <section class="h-screen bg-black flex items-center justify-center relative">
+        <div class="flex flex-col items-center justify-center text-center">
+          <div class="mb-12 md:mb-8 sm:mb-6">
+            <img src="assets/logo.png" alt="Logo Sébastien Mullor" class="max-w-3xl md:max-w-sm sm:max-w-72 sm:max-h-48 w-auto h-auto object-contain" />
           </div>
-          <div class="hero-cta">
-            <a href="#gallery" class="cta-button"><span>{{HERO_CTA}}</span></a>
+          <div>
+            <a href="#gallery" class="inline-flex items-center gap-3 text-white no-underline font-light text-lg md:text-base sm:text-sm tracking-wider py-4 px-8 md:py-3 md:px-6 sm:py-3 sm:px-5 border-2 border-white/30 rounded-full bg-white/5 backdrop-blur-md transition-all duration-500 relative overflow-hidden hover:border-white/60 hover:bg-white/10 hover:transform hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/10 cta-shimmer animate-[pulse_3s_infinite]">
+              <span>{{HERO_CTA}}</span>
+            </a>
           </div>
         </div>
       </section>
-      <section class="gallery" id="gallery">
+      
+      <!-- Gallery Section -->
+      <section class="w-full" id="gallery">
         {{#gallery}}
-        <div class="gallery-item">
-          <img src="{{image}}" alt="{{alt}}" />
+        <div class="w-full block bg-black mb-0.5">
+          <img src="{{image}}" alt="{{alt}}" class="w-full h-auto block transition-transform duration-300 hover:scale-105" />
         </div>
         {{/gallery}}
       </section>

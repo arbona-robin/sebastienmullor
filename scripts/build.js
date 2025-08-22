@@ -5,12 +5,12 @@
 const { readJSON, copyStaticAssets } = require("./utils/file-utils");
 const { buildIndex, buildArchitecture, buildContact } = require("./page-builders");
 
-function buildAll() {
+async function buildAll() {
   // Load site configuration
   const site = readJSON("site");
   
   // Copy static assets (CSS, JS, images, public files)
-  copyStaticAssets();
+  await copyStaticAssets();
   
   // Build pages
   buildIndex(site);
@@ -20,4 +20,7 @@ function buildAll() {
   console.log("[build] Completed at", new Date().toISOString());
 }
 
-buildAll();
+buildAll().catch(error => {
+  console.error("[build] Error:", error);
+  process.exit(1);
+});

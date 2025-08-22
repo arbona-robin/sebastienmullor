@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,33 +7,37 @@
     {{{HEAD_META}}}
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <div class="loading-overlay" id="loadingOverlay">
-      <div class="loading-spinner"></div>
+  <body class="font-sans overflow-x-hidden bg-black text-white">
+    <!-- Loading overlay -->
+    <div class="fixed inset-0 bg-black z-[9999] flex items-center justify-center opacity-0 invisible transition-all duration-300 loading-overlay" id="loadingOverlay">
+      <div class="w-10 h-10 border-4 border-white/10 border-l-white rounded-full animate-spin"></div>
     </div>
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-logo">
-          <img src="assets/logo-removebg.png" alt="Logo Sébastien Mullor" />
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full bg-black/70 backdrop-blur-md z-[1000] transition-all duration-300 h-20">
+      <div class="max-w-7xl mx-auto flex justify-between items-center px-8 max-lg:px-6 max-md:px-4 max-sm:px-2 h-full">
+        <div class="flex items-center h-full w-32 max-lg:w-24 max-sm:w-20">
+          <img src="assets/logo-removebg.png" alt="Logo Sébastien Mullor" class="h-10 max-lg:h-9 w-auto max-w-32 max-lg:max-w-24 max-sm:max-w-20 object-contain object-left" />
         </div>
-        <ul class="nav-menu">
+        <ul class="flex list-none gap-8 max-md:fixed max-md:top-20 max-md:left-[-100%] max-md:w-full max-md:h-[calc(100vh-5rem)] max-md:bg-black/70 max-md:backdrop-blur-md max-md:flex-col max-md:justify-start max-md:items-center max-md:pt-8 max-md:gap-8 max-md:transition-all max-md:duration-300 nav-menu">
           <li>
-            <a href="index.html" class="nav-link{{#INDEX_ACTIVE}} active{{/INDEX_ACTIVE}} transition-link"
-              >Réalisations</a
-            >
+            <a href="index.html" class="text-white no-underline font-light text-lg max-md:text-xl tracking-wider transition-all duration-300 relative py-2 max-md:py-4 hover:transform hover:-translate-y-0.5 nav-link-underline{{#INDEX_ACTIVE}} active{{/INDEX_ACTIVE}} transition-link">Réalisations</a>
           </li>
           <li>
-            <a href="architecture.html" class="nav-link{{#ARCHITECTURE_ACTIVE}} active{{/ARCHITECTURE_ACTIVE}} transition-link"
-              >Architecture Navale</a
-            >
+            <a href="architecture.html" class="text-white no-underline font-light text-lg max-md:text-xl tracking-wider transition-all duration-300 relative py-2 max-md:py-4 hover:transform hover:-translate-y-0.5 nav-link-underline{{#ARCHITECTURE_ACTIVE}} active{{/ARCHITECTURE_ACTIVE}} transition-link">Architecture Navale</a>
           </li>
           <li>
-            <a href="contact.html" class="nav-link{{#CONTACT_ACTIVE}} active{{/CONTACT_ACTIVE}} transition-link">Contact</a>
+            <a href="contact.html" class="text-white no-underline font-light text-lg max-md:text-xl tracking-wider transition-all duration-300 relative py-2 max-md:py-4 hover:transform hover:-translate-y-0.5 nav-link-underline{{#CONTACT_ACTIVE}} active{{/CONTACT_ACTIVE}} transition-link">Contact</a>
           </li>
         </ul>
-        <div class="hamburger"><span></span><span></span><span></span></div>
+        <div class="hidden max-md:flex flex-col cursor-pointer p-2 hamburger">
+          <span class="w-6 h-0.5 bg-white my-0.5 transition-all duration-300 rounded-sm hamburger-line-1"></span>
+          <span class="w-6 h-0.5 bg-white my-0.5 transition-all duration-300 rounded-sm hamburger-line-2"></span>
+          <span class="w-6 h-0.5 bg-white my-0.5 transition-all duration-300 rounded-sm hamburger-line-3"></span>
+        </div>
       </div>
     </nav>
+    
     {{>main-content}}
     <script src="page-transitions.js"></script>
   </body>

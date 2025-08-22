@@ -50,18 +50,29 @@ document.addEventListener("DOMContentLoaded", function () {
   // Menu hamburger
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.querySelector(".nav-menu");
+  const hamburgerLines = document.querySelectorAll(".hamburger span");
 
   if (hamburger && navMenu) {
     hamburger.addEventListener("click", () => {
-      hamburger.classList.toggle("active");
-      navMenu.classList.toggle("active");
+      // Toggle hamburger lines
+      hamburgerLines.forEach(line => line.classList.toggle("active"));
+      
+      // Toggle nav menu visibility
+      if (navMenu.classList.contains("max-md:left-[-100%]")) {
+        navMenu.classList.remove("max-md:left-[-100%]");
+        navMenu.classList.add("max-md:left-0");
+      } else {
+        navMenu.classList.remove("max-md:left-0");
+        navMenu.classList.add("max-md:left-[-100%]");
+      }
     });
 
     // Fermer le menu quand on clique sur un lien
     document.querySelectorAll(".nav-link").forEach((n) =>
       n.addEventListener("click", () => {
-        hamburger.classList.remove("active");
-        navMenu.classList.remove("active");
+        hamburgerLines.forEach(line => line.classList.remove("active"));
+        navMenu.classList.remove("max-md:left-0");
+        navMenu.classList.add("max-md:left-[-100%]");
       })
     );
   }

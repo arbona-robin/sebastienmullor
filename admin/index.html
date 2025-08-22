@@ -10,8 +10,8 @@
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
     <script>
-      // Register your existing CSS file for preview
-      CMS.registerPreviewStyle("../styles.css");
+      // Load Tailwind CSS Play CDN for preview (includes all features)
+      CMS.registerPreviewStyle("https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,container-queries");
       
       // Load preview templates
       const script = document.createElement('script');
