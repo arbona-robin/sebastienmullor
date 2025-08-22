@@ -2,6 +2,9 @@
 
 console.log("Preview templates script loaded");
 
+// Use React.createElement (available in CMS context)
+const h = React.createElement;
+
 // Simple markdown to HTML helper (fallback if marked is not available)
 function markdownToHTML(content) {
   if (!content) return '';
@@ -34,10 +37,14 @@ function markdownToHTML(content) {
 
 // Index/Réalisations page preview
 const IndexPreview = ({ entry, widgetFor, getAsset }) => {
-  const data = entry.getIn(["data"]).toJS();
-  const meta = data.meta || {};
-  const hero = data.hero || {};
-  const gallery = data.gallery || [];
+  console.log("IndexPreview called", { entry, widgetFor, getAsset });
+  
+  try {
+    const data = entry.getIn(["data"]).toJS();
+    console.log("Index data:", data);
+    const meta = data.meta || {};
+    const hero = data.hero || {};
+    const gallery = data.gallery || [];
 
   return h("div", { 
     className: "animate-fade-in font-sans overflow-x-hidden bg-black text-white",
@@ -88,6 +95,10 @@ const IndexPreview = ({ entry, widgetFor, getAsset }) => {
       )
     ),
   ]);
+  } catch (error) {
+    console.error("IndexPreview error:", error);
+    return h("div", { style: { color: "red", padding: "20px" } }, `Preview Error: ${error.message}`);
+  }
 };
 
 // Architecture page preview
