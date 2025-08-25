@@ -12,12 +12,12 @@
   },
   "gallery": [
     {
-      "image": "assets/bateau_1.jpg",
-      "alt": "Bateau 1"
-    },
-    {
       "image": "assets/bateau_2.jpg",
       "alt": "Bateau 2"
+    },
+    {
+      "image": "assets/bateau_1.jpg",
+      "alt": "Bateau 1"
     },
     {
       "image": "assets/bateau_3.jpg",
