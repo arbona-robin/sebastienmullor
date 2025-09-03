@@ -1,8 +1,8 @@
 {
   "meta": {
     "title": "Sébastien Mullor - Architecte Naval | Réalisations",
-    "description": "Découvrez les réalisations de Sébastien Mullor, architecte et ingénieur naval. Conception de yachts, bateaux professionnels et projets navals innovants!!!.",
-    "keywords": "architecte naval, ingénieur naval, conception bateau, yacht design, architecture navale, Sébastien Mullor, Marseille",
+    "description": "Découvrez les réalisations de Sébastien Mullor, architecte et ingénieur naval. Conception de yachts, voiliers, bateaux professionnels et projets navals innovants.",
+    "keywords": "architecte naval, ingénieur naval, conception bateau, yacht design, voilier, architecture navale, Sébastien Mullor, Marseille",
     "image": "assets/bateau_1.jpg",
     "path": "",
     "type": "website"
@@ -12,36 +12,48 @@
   },
   "gallery": [
     {
-      "image": "assets/bateau_2.jpg",
-      "alt": "Bateau 2"
+      "image": "assets/img_1312-1-.png",
+      "alt": "Motor boat - 12m"
     },
     {
-      "image": "assets/bateau_1.jpg",
-      "alt": "Bateau 1"
+      "image": "assets/img_1320-1-.png",
+      "alt": "Sailing boat - 10m"
     },
     {
-      "image": "assets/bateau_3.jpg",
-      "alt": "Bateau 3"
+      "image": "assets/img_1313-1-.jpg",
+      "alt": "Fly-Box - 8m"
     },
     {
-      "image": "assets/bateau_4.jpg",
-      "alt": "Bateau 4"
+      "image": "assets/img_1315-1-.png",
+      "alt": "Police patrol - 12m"
     },
     {
-      "image": "assets/bateau_5.jpg",
-      "alt": "Bateau 5"
+      "image": "assets/img_1316.png",
+      "alt": "Military RIB - 12m"
     },
     {
-      "image": "assets/bateau_6.jpg",
-      "alt": "Bateau 6"
+      "image": "assets/img_1308.png",
+      "alt": "Firefighter vessel - 14m"
     },
     {
-      "image": "assets/bateau_7.jpg",
-      "alt": "Bateau 7"
+      "image": "assets/img_1311.png",
+      "alt": "Recreational speed boat - 12m"
     },
     {
-      "image": "assets/bateau_8.jpg",
-      "alt": "Bateau 8"
+      "image": "assets/img_1317-1-.png",
+      "alt": "Military vessel - 14m"
+    },
+    {
+      "image": "assets/img_1314-1-.jpg",
+      "alt": "Catamaran - 15m"
+    },
+    {
+      "image": "assets/chatgpt-image-27-juil.-2025-17_35_34.png",
+      "alt": "Catamaran yacht - 24m"
+    },
+    {
+      "image": "assets/img_1319-1-.png",
+      "alt": "Superyacht - 120m"
     }
   ]
 }
