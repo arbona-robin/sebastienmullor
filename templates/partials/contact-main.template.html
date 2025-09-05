@@ -4,7 +4,9 @@
   <section
     class="h-[calc(100vh-5rem)] max-md:h-auto max-md:min-h-[calc(100vh-5rem)] flex items-stretch"
   >
-    <div class="w-full grid grid-cols-2 max-md:grid-cols-1 h-full">
+    <div
+      class="max-w-7xl mx-auto w-full grid grid-cols-2 max-md:grid-cols-1 h-full"
+    >
       <!-- Contact Info -->
       <div
         class="bg-black text-white p-16 max-lg:p-12 max-md:p-8 max-sm:p-6 max-md:min-h-[60vh] flex flex-col justify-center"
@@ -49,7 +51,7 @@
               >
             </p>
           </div>
-          <div class="mb-10 max-md:mb-8 max-sm:mb-8">
+          <div class="">
             <h2 class="text-xl max-md:text-lg mb-2 text-white font-normal">
               Site Web
             </h2>
@@ -66,6 +68,15 @@
             </p>
           </div>
         </div>
+        <!-- Contact Image - mobile only -->
+        <div class="md:hidden overflow-hidden min-h-[30vh] mb-8">
+          <img
+            src="{{CONTACT_IMAGE}}"
+            alt="{{CONTACT_IMAGE_ALT}}"
+            class="w-full h-full object-cover object-center rounded-lg"
+          />
+        </div>
+
         <div>
           <h2 class="text-xl max-md:text-lg mb-2 text-white font-normal">
             {{PROJECTS_TITLE}}
@@ -78,12 +89,14 @@
         </div>
       </div>
 
-      <!-- Contact Image -->
-      <div class="overflow-hidden max-md:min-h-[40vh]">
+      <!-- Contact Image - desktop only -->
+      <div
+        class="overflow-hidden max-md:hidden mt-10 max-md:mt-8 max-sm:mt-8 flex items-center"
+      >
         <img
           src="{{CONTACT_IMAGE}}"
           alt="{{CONTACT_IMAGE_ALT}}"
-          class="w-full h-full object-cover object-center"
+          class="w-full object-fill object-center"
         />
       </div>
     </div>
