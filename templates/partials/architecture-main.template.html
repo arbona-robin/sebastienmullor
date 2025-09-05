@@ -22,13 +22,20 @@
         >
           {{{INTRO_PARAGRAPHS}}}
         </div>
+        <div class="max-md:order-2">
+          <img
+            src="{{INTRO_IMAGE}}"
+            alt="Architecture Navale"
+            class="w-full h-auto rounded-lg shadow-xl transition-transform duration-300 hover:scale-[1.02] max-md:mb-6 md:hidden"
+          />
+        </div>
         <p
-          class="text-xl max-md:text-lg max-sm:text-base text-white font-medium mt-8 max-md:mt-6 p-6 max-md:p-4 max-sm:p-3 bg-white/10 border-l-4 border-white rounded-r-lg quote"
+          class="text-xl max-md:text-lg max-sm:text-base text-white font-medium mt-8 max-md:mt-6 p-6 max-md:p-4 max-sm:p-3 bg-white/10 border-l-4 border-white rounded-r-lg quote max-md:order-3"
         >
           <em>{{QUOTE}}</em>
         </p>
       </div>
-      <div>
+      <div class="max-md:hidden">
         <img
           src="{{INTRO_IMAGE}}"
           alt="Architecture Navale"
