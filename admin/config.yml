@@ -46,7 +46,6 @@ collections:
             fields:
               - { label: "Titre", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
-              - { label: "Image", name: "image", widget: "image" }
               - { label: "Path", name: "path", widget: "string" }
               - { label: "Type", name: "type", widget: "string" }
           - label: "Intro"

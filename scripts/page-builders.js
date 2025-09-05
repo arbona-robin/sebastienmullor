@@ -26,7 +26,15 @@ function buildIndex(site) {
 
 function buildArchitecture(site) {
   const data = readJSON("architecture");
-  const headMeta = metaTags(data, site);
+  // Use intro.image for meta tags instead of meta.image
+  const metaDataWithIntroImage = {
+    ...data,
+    meta: {
+      ...data.meta,
+      image: data.intro.image
+    }
+  };
+  const headMeta = metaTags(metaDataWithIntroImage, site);
 
   const templateData = {
     ...data,
