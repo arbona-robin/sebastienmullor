@@ -21,7 +21,7 @@
 
     <!-- Navigation -->
     <nav
-      class="fixed top-0 left-0 w-full bg-transparent z-[1000] transition-all duration-300 h-20"
+      class="fixed top-0 left-0 w-full bg-transparent {{#ARCHITECTURE_ACTIVE}}architecture-nav{{/ARCHITECTURE_ACTIVE}} z-[1000] transition-all duration-300 h-20"
     >
       <div
         class="max-w-7xl mx-auto flex justify-between items-center px-8 max-lg:px-6 max-md:px-4 max-sm:px-2 h-full"
@@ -34,7 +34,7 @@
           />
         </div>
         <ul
-          class="flex list-none gap-8 max-md:fixed max-md:top-20 max-md:left-[-100%] max-md:w-full max-md:h-[calc(100vh-5rem)] max-md:bg-black/70 max-md:backdrop-blur-md max-md:flex-col max-md:justify-start max-md:items-center max-md:pt-8 max-md:gap-8 max-md:transition-all max-md:duration-300 nav-menu"
+          class="flex list-none gap-8 max-md:fixed max-md:top-0 max-md:left-[-100%] max-md:w-full max-md:h-screen max-md:bg-black/70 max-md:backdrop-blur-md max-md:flex-col max-md:justify-center max-md:items-center max-md:gap-8 max-md:transition-all max-md:duration-300 nav-menu"
         >
           <li>
             <a

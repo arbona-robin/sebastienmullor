@@ -92,4 +92,9 @@
     opacity: 1;
     visibility: visible;
   }
+  
+  .architecture-nav {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(12px);
+  }
 }
