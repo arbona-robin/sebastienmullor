@@ -52,32 +52,74 @@
         <h2
           class="text-4xl max-md:text-3xl max-sm:text-2xl mb-8 max-md:mb-6 text-white font-light text-center"
         >
-          Formation & Expérience
+          {{FORMATION_TITLE}}
         </h2>
         <div
           class="text-lg max-md:text-base leading-relaxed mb-6 text-gray-300 text-justify"
         >
           {{{FORMATION_PARAGRAPHS}}}
         </div>
+        {{#FORMATION_IMAGE}}
+        <div class="mb-8 max-md:mb-6">
+          <img
+            src="{{FORMATION_IMAGE}}"
+            alt="{{FORMATION_TITLE}}"
+            class="w-full h-auto rounded-lg shadow-xl transition-transform duration-300 hover:scale-[1.02]"
+          />
+        </div>
+        {{/FORMATION_IMAGE}}
+        <div
+          class="text-lg max-md:text-base leading-relaxed mb-6 text-gray-300 text-justify"
+        >
+          {{{FORMATION_PARAGRAPHS_2ND_PART}}}
+        </div>
         <h3
           class="text-xl max-md:text-lg my-12 max-md:my-8 max-md:mb-4 text-white font-normal"
         >
-          Ma Philosophie de Conception
+          {{PHILOSOPHY_TITLE}}
         </h3>
         <div
           class="text-lg max-md:text-base leading-relaxed mb-6 text-gray-300 text-justify"
         >
           {{{PHILOSOPHY_PARAGRAPHS}}}
         </div>
+        {{#PHILOSOPHY_IMAGE}}
+        <div class="mb-8 max-md:mb-6">
+          <img
+            src="{{PHILOSOPHY_IMAGE}}"
+            alt="{{PHILOSOPHY_TITLE}}"
+            class="w-full h-auto rounded-lg shadow-xl transition-transform duration-300 hover:scale-[1.02]"
+          />
+        </div>
+        {{/PHILOSOPHY_IMAGE}}
+        <div
+          class="text-lg max-md:text-base leading-relaxed mb-6 text-gray-300 text-justify"
+        >
+          {{{PHILOSOPHY_PARAGRAPHS_2ND_PART}}}
+        </div>
         <h3
           class="text-xl max-md:text-lg my-12 max-md:my-8 max-md:mb-4 text-white font-normal"
         >
-          Ma Vision
+          {{CAO_TITLE}}
         </h3>
         <div
           class="text-lg max-md:text-base leading-relaxed mb-6 text-gray-300 text-justify"
         >
-          {{{VISION_PARAGRAPHS}}}
+          {{{CAO_PARAGRAPHS}}}
+        </div>
+        {{#CAO_IMAGE}}
+        <div class="mb-8 max-md:mb-6">
+          <img
+            src="{{CAO_IMAGE}}"
+            alt="{{CAO_TITLE}}"
+            class="w-full h-auto rounded-lg shadow-xl transition-transform duration-300 hover:scale-[1.02]"
+          />
+        </div>
+        {{/CAO_IMAGE}}
+        <div
+          class="text-lg max-md:text-base leading-relaxed mb-6 text-gray-300 text-justify"
+        >
+          {{{CAO_PARAGRAPHS_2ND_PARTS}}}
         </div>
       </div>
     </div>

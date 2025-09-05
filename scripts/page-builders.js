@@ -1,11 +1,15 @@
 const { metaTags, structuredDataPerson } = require("./utils/meta-generator");
-const { renderPageWithLayout, paragraphHTML, markdownToHTML } = require("./utils/template-renderer");
+const {
+  renderPageWithLayout,
+  paragraphHTML,
+  markdownToHTML,
+} = require("./utils/template-renderer");
 const { readJSON, writePage } = require("./utils/file-utils");
 
 function buildIndex(site) {
   const data = readJSON("index");
   const headMeta = metaTags(data, site) + "\n    " + structuredDataPerson(site);
-  
+
   const templateData = {
     ...data,
     PAGE_TITLE: data.meta.title,
@@ -13,9 +17,9 @@ function buildIndex(site) {
     HEAD_META: headMeta,
     INDEX_ACTIVE: true,
     ARCHITECTURE_ACTIVE: false,
-    CONTACT_ACTIVE: false
+    CONTACT_ACTIVE: false,
   };
-  
+
   const html = renderPageWithLayout("index", templateData);
   writePage("index", html);
 }
@@ -23,7 +27,7 @@ function buildIndex(site) {
 function buildArchitecture(site) {
   const data = readJSON("architecture");
   const headMeta = metaTags(data, site);
-  
+
   const templateData = {
     ...data,
     PAGE_TITLE: data.meta.title,
@@ -31,17 +35,40 @@ function buildArchitecture(site) {
     NAME: data.intro.name,
     ROLE: data.intro.role,
     // Support both old paragraphs array and new content markdown
-    INTRO_PARAGRAPHS: data.intro.content ? markdownToHTML(data.intro.content) : paragraphHTML(data.intro.paragraphs || []),
+    INTRO_PARAGRAPHS: data.intro.content
+      ? markdownToHTML(data.intro.content)
+      : paragraphHTML(data.intro.paragraphs || []),
     QUOTE: data.intro.quote,
     INTRO_IMAGE: data.intro.image,
-    FORMATION_PARAGRAPHS: data.formation.content ? markdownToHTML(data.formation.content) : paragraphHTML(data.formation.paragraphs || []),
-    PHILOSOPHY_PARAGRAPHS: data.philosophy.content ? markdownToHTML(data.philosophy.content) : paragraphHTML(data.philosophy.paragraphs || []),
-    VISION_PARAGRAPHS: data.vision.content ? markdownToHTML(data.vision.content) : paragraphHTML(data.vision.paragraphs || []),
+    FORMATION_TITLE: data.formation.title,
+    FORMATION_PARAGRAPHS: data.formation.content
+      ? markdownToHTML(data.formation.content)
+      : paragraphHTML(data.formation.paragraphs || []),
+    FORMATION_IMAGE: data.formation.image,
+    FORMATION_PARAGRAPHS_2ND_PART: data.formation.content_2nd_part
+      ? markdownToHTML(data.formation.content_2nd_part)
+      : paragraphHTML(data.formation.paragraphs_2nd_part || []),
+    PHILOSOPHY_TITLE: data.philosophy.title,
+    PHILOSOPHY_PARAGRAPHS: data.philosophy.content
+      ? markdownToHTML(data.philosophy.content)
+      : paragraphHTML(data.philosophy.paragraphs || []),
+    PHILOSOPHY_IMAGE: data.philosophy.image,
+    PHILOSOPHY_PARAGRAPHS_2ND_PART: data.philosophy.content_2nd_parts
+      ? markdownToHTML(data.philosophy.content_2nd_parts)
+      : paragraphHTML(data.philosophy.paragraphs_2nd_parts || []),
+    CAO_TITLE: data.cao.title,
+    CAO_PARAGRAPHS: data.cao.content
+      ? markdownToHTML(data.cao.content)
+      : paragraphHTML(data.cao.paragraphs || []),
+    CAO_IMAGE: data.cao.image,
+    CAO_PARAGRAPHS_2ND_PARTS: data.cao.content_2nd_parts
+      ? markdownToHTML(data.cao.content_2nd_parts)
+      : paragraphHTML(data.cao.paragraphs_2nd_parts || []),
     INDEX_ACTIVE: false,
     ARCHITECTURE_ACTIVE: true,
-    CONTACT_ACTIVE: false
+    CONTACT_ACTIVE: false,
   };
-  
+
   const html = renderPageWithLayout("architecture", templateData);
   writePage("architecture", html);
 }
@@ -49,7 +76,7 @@ function buildArchitecture(site) {
 function buildContact(site) {
   const data = readJSON("contact");
   const headMeta = metaTags(data, site);
-  
+
   const templateData = {
     ...data,
     PAGE_TITLE: data.meta.title,
@@ -66,9 +93,9 @@ function buildContact(site) {
     CONTACT_IMAGE_ALT: data.image.alt,
     INDEX_ACTIVE: false,
     ARCHITECTURE_ACTIVE: false,
-    CONTACT_ACTIVE: true
+    CONTACT_ACTIVE: true,
   };
-  
+
   const html = renderPageWithLayout("contact", templateData);
   writePage("contact", html);
 }
@@ -76,5 +103,5 @@ function buildContact(site) {
 module.exports = {
   buildIndex,
   buildArchitecture,
-  buildContact
+  buildContact,
 };
