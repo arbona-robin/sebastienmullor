@@ -14,7 +14,7 @@ Sébastien Mullor is a naval architect and marine engineer based in Marseille, F
 
 ## Visit the Site
 
-🌐 **[sebastienmullor.github.io/sebastienmullor](https://sebastienmullor.github.io/sebastienmullor/)**
+🌐 **[sebastienmullor.fr](https://sebastienmullor.fr)**
 
 ## Services
 
@@ -26,7 +26,7 @@ Sébastien Mullor is a naval architect and marine engineer based in Marseille, F
 ## Contact
 
 - **Location**: Marseille, France
-- **Website**: [sebastienmullor.fr](https://www.sebastienmullor.fr)
+- **Website**: [sebastienmullor.fr](https://sebastienmullor.fr)
 - **Email**: Available through the contact page
 
 ---

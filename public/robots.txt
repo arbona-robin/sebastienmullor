@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://sebastienmullor.github.io/sebastienmullor/sitemap.xml
+Sitemap: https://sebastienmullor.fr/sitemap.xml
 
 # Disallow specific file types if needed
 Disallow: /*.pdf$

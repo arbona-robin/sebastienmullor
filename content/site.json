@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://sebastienmullor.github.io/sebastienmullor/",
+  "baseUrl": "https://sebastienmullor.fr/",
   "siteName": "Sébastien Mullor - Architecte Naval",
   "author": "Sébastien Mullor",
   "person": {
@@ -17,6 +17,6 @@
       "Ingénierie marine",
       "Design nautique"
     ],
-    "sameAs": ["https://sebastien-mullor.fr"]
+    "sameAs": ["https://sebastienmullor.fr/"]
   }
 }
