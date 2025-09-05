@@ -4,12 +4,10 @@
   <section
     class="h-[calc(100vh-5rem)] max-md:h-auto max-md:min-h-[calc(100vh-5rem)] flex items-stretch"
   >
-    <div
-      class="max-w-7xl mx-auto w-full grid grid-cols-2 max-md:grid-cols-1 h-full"
-    >
+    <div class="w-full grid grid-cols-2 max-md:grid-cols-1 h-full">
       <!-- Contact Info -->
       <div
-        class="bg-black text-white p-16 max-lg:p-12 max-md:p-8 max-sm:p-6 max-md:min-h-[60vh] flex flex-col justify-center"
+        class="bg-black text-white p-16 max-lg:p-12 max-md:p-8 max-sm:p-6 max-md:min-h-[60vh] flex flex-col justify-center pr-0!"
       >
         <h1
           class="text-5xl max-md:text-4xl max-sm:text-3xl mb-12 max-md:mb-8 max-sm:mb-6 font-light"
@@ -91,12 +89,12 @@
 
       <!-- Contact Image - desktop only -->
       <div
-        class="overflow-hidden max-md:hidden mt-10 max-md:mt-8 max-sm:mt-8 flex items-center"
+        class="overflow-hidden max-md:hidden -ml-8 max-lg:-ml-6 max-md:-ml-4"
       >
         <img
           src="{{CONTACT_IMAGE}}"
           alt="{{CONTACT_IMAGE_ALT}}"
-          class="w-full object-fill object-center"
+          class="w-full h-full object-cover object-left"
         />
       </div>
     </div>
