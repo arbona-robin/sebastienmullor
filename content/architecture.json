@@ -26,8 +26,8 @@
   },
   "cao": {
     "title": "CAO",
-    "content": "Paragraphe CAO 1er partie, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "image": "assets/dessin.jpg",
-    "content_2nd_parts": "Paragraphe CAO 2eme partie, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "content": "\nDepuis une dizaine d’années, mon parcours en tant qu’architecte naval m’a permis de développer une expertise solide dans l’utilisation du logiciel de conception assistée par ordinateur Rhinoceros et du module Orca 3D adapté au calculs hydrostatiques associés.",
+    "image": "assets/img_1362.jpg",
+    "content_2nd_parts": "\nFort de cette expérience, j’ai élargi mes compétences en devenant formateur sur ce logiciel, accompagnant des professionnels et des étudiants dans leur apprentissage et leur perfectionnement, et contribuant ainsi à la diffusion de pratiques de conception innovantes et rigoureuses."
   }
 }
